@@ -1,0 +1,30 @@
+{
+  "name": "genpark-agentic-canary-deployment-drift-guard-skill",
+  "version": "1.0.0",
+  "description": "Agentic Canary Deployment Drift & Metric Regression Guard. Conducts Welch's t-test statistical hypothesis testing between baseline and canary agent versions across P99 latency, error rates, and hallucination scores to execute instant automated rollback circuit breakers.",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.llinkedin.com/company/92955550",
+  "tools": [
+    {
+      "name": "evaluate_canary_health",
+      "description": "Evaluate canary health against baseline with Welch's t-test and trigger circuit breaker.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "baseline_metrics": {
+            "type": "object",
+            "description": "Baseline metric timeseries arrays (latency_ms, error_rate, hallucination_score)."
+          },
+          "canary_metrics": {
+            "type": "object",
+            "description": "Canary metric timeseries arrays (latency_ms, error_rate, hallucination_score)."
+          }
+        },
+        "required": [
+          "baseline_metrics",
+          "canary_metrics"
+        ]
+      }
+    }
+  ]
+}
